@@ -12,7 +12,7 @@ I included a modified version of Monokai named MonokaiPureJira that will show up
 Release notes 
 - Initial beta release!
 
-Issues
+*Issues*
 - Auto complete 
 	- Auto complete and snippets will appear (eg when you type {n or {p, you will see autocomplete box and pressing enter or tab will complete the tag with {norformat}). 
 	- The "issue" is that it will also attempt to autocomplete any other words already in the file. Working to disable this
