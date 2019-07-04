@@ -1,0 +1,17 @@
+{
+
+	"schema_version": "3.0.0",
+
+	"packages": [
+
+		{
+			"name": "pureJIRAsyntax",
+			"releases": [
+				{
+					"sublime_text": "*",
+					"tags": true
+				}
+			]
+		},
+	]
+}
