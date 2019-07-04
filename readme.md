@@ -9,10 +9,10 @@ To use, select the syntax by clicking in the lower right hand corner (most unsav
 The default Sublime color scheme, Monokai, works but the highlight color is hard to see on the noformat areas of text. 
 I included a modified version of Monokai named MonokaiPureJira that will show up in Preferences - Color Scheme... that has a different "selected" color
 
-Release notes 
+##Release notes* 
 - Initial beta release!
 
-*Issues*
+##Issues
 - Auto complete 
 	- Auto complete and snippets will appear (eg when you type {n or {p, you will see autocomplete box and pressing enter or tab will complete the tag with {norformat}). 
 	- The "issue" is that it will also attempt to autocomplete any other words already in the file. Working to disable this
