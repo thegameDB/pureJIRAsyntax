@@ -1,0 +1,8 @@
+{
+	"scope": "source",
+
+	"completions": [
+		{ "trigger": "{noformat}", "contents": "noformat"},
+		{ "trigger": "{panel}", "contents": "panel"},
+	]
+}

@@ -1,0 +1,190 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: PureJIRA
+file_extensions: .pjira
+  - ec
+scope: source.example-c
+variables:
+  other_text_mods: '\^|\~|\?\?'
+  projects: '(PURE|ES|HW|PT|CLOUD)'
+  icons: '\((!|\?|/)\)'
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+
+  prototype:
+    - include: comments
+    - include: noformat
+    - include: panel
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    #- include: keywords
+   # - include: numbers
+    #- include: strings
+    - include: noformat
+    #- include: jira_number
+    #- include: formatting
+    - include: panel
+    # icons
+    - match: '{{icons}}'
+      scope: keyword
+    # *bold*
+    - match: '\*[^\b]+\*'
+      scope: markup.bold
+    # _italic_
+    - match: '_(.*)_'
+      scope: markup.italic
+    # -deleted-
+    #- match: '\-[^\b]+\-'
+    #  scope: markup.deleted
+    # -inserted-
+    - match: '\+[^\b]+\+'
+      scope: markup.inserted
+    # {{code}}
+    - match: '\{\{[^\}]+\}\}'
+      scope: markup.raw.inline
+    # others (super- and -sub)
+    - match: '{{other_text_mods}}[^\b]?{{other_text_mods}}'
+      scope: markup.bold
+    # headings h1-5
+    - match: '\b^(h[0-5])(\.)'
+      captures:
+        1: keyword.control
+        2: default
+    # inline blockquote
+    - match: '\b^bq.'
+      scope: keyword.control
+    # lists
+    - match: '^[\-#\*]+ '
+      scope: markup.bold
+    # numbers
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric
+    # tables
+    - match: '(\|)(\|)?'
+      scope: jira_number
+    # {{code}}
+    - match: '\{code\}'
+      scope: keyword.control
+      push: block_code
+    # {{quote}}
+    - match: '\{quote\}'
+      scope: keyword.control
+      push: block_quote
+    # [#anchor], [link_url], [~user]
+    - match: '\['
+      scope: keyword.control
+      push: anchor
+    # simple curly brackets
+    - match: '(?!\{(code|quote)\})\{'
+      scope: keyword.control
+      push: curly
+    - match: '\}'
+      scope: invalid.illegal.stray-bracket-end
+    # JIRA tickets
+    - match: '{{projects}}-[0-9]+'
+      scope: markup.underline.link
+  curly:
+    - match: '\}'
+      scope: keyword.control
+      pop: true
+    - include: main
+  block_code:
+    - match: '^(?!\{code\}).*'
+      scope: markup.raw.inline
+    - match: '\{code\}'
+      scope: keyword.control
+      pop: true
+  block_quote:
+    - match: '^(?!\{quote\}).*'
+      scope: markup.italic
+    - match: '\{quote\}'
+      scope: keyword.control
+      pop: true
+  anchor:
+    - match: '(#|~)[^\|\]]+'
+      scope: markup.italic
+    - match: '\|'
+      scope: keyword.control
+    - match: '\]'
+      scope: keyword.control
+      pop: true
+  # keywords:
+  #   # Keywords are if, else for and while.
+  #   # Note that blackslashes don't need to be escaped within single quoted
+  #   # strings in YAML. When using single quoted strings, only single quotes
+  #   # need to be escaped: this is done by using two single quotes next to each
+  #   # other.
+  #   - match: '\b(if|else|for|while)\b'
+  #     scope: keyword.control.example-c
+
+  #numbers:
+   # - match: '\b(-)?[0-9.]+\b'
+    #  scope: constant.numeric.example-c
+
+  # strings:
+  #   # Strings begin and end with quotes, and use backslashes as an escape
+  #   # character.
+  #   - match: '"'
+  #     scope: punctuation.definition.string.begin.example-c
+  #     push: inside_string
+
+  # inside_string:
+  #   - meta_include_prototype: false
+  #   - meta_scope: string.quoted.double.example-c
+  #   - match: '\.'
+  #     scope: constant.character.escape.example-c
+  #   - match: '"'
+  #     scope: punctuation.definition.string.end.example-c
+  #     pop: true
+
+  noformat:
+    # JIRA noformat tag
+    - match: '{noformat.+?}|{noformat}'
+      scope: markup.heading punctuation.definition.heading
+      push: inside_noformat
+
+  inside_noformat:
+    - meta_include_prototype: false
+    - meta_scope: markup.raw
+    - match: '\.'
+      scope: markup.raw
+      #scope: noformatContent.example-c
+    - match: '{noformat}'
+      scope: markup.heading punctuation.definition.heading
+      pop: true
+  panel:
+    # JIRA noformat tag
+    - match: '{panel}|{panel.+?}'
+      scope: markup.heading punctuation.definition.heading
+      push: inside_panel
+
+  inside_panel:
+    - meta_include_prototype: false
+    - meta_scope: markup.raw
+    - match: '\.'
+      scope: markup.raw
+      #scope: noformatContent.example-c
+    - match: '{panel}'
+      scope: markup.heading punctuation.definition.heading
+      pop: true
+  # jira_number:
+  #   - match: 'ES-\b(-)?[0-9.]+\b|PURE-\b(-)?[0-9.]+\b'
+  #     scope: jira_number.example-c
+  #formatting:
+   # - match: '\*[^\b]+\*'
+    #  scope: markup.bold
+  comments:
+    # Comments begin with a '//' and finish at the end of the line.
+    - match: '#'
+      scope: punctuation.definition.comment.example-c
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment.line.double-slash.example-c
+        - match: $\n?
+          pop: true
+
