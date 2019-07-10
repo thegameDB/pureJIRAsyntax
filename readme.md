@@ -5,6 +5,7 @@
 	- Open **Command Palette**
 		- Tools -> Command Palette
 		- ⇧⌘P on Mac
+		- Ctrl+Shift+P on Windows
 	- Type "Package Control: Add Repository"
 	- Paste the GitHub URL for the repository
 		- https://github.com/thegameDB/pureJIRAsyntax
