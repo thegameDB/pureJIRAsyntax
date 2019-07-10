@@ -7,7 +7,6 @@ file_extensions: .pjira
 scope: source.example-c
 variables:
   other_text_mods: '\^|\~|\?\?'
-  projects: '(PURE|ES|HW|PT|CLOUD)'
   icons: '\((!|\?|/)\)'
 
 contexts:
@@ -86,7 +85,7 @@ contexts:
     - match: '\}'
       scope: invalid.illegal.stray-bracket-end
     # JIRA tickets
-    - match: '{{projects}}-[0-9]+'
+    - match: '[A-Z]+-[0-9]+'
       scope: markup.underline.link
   curly:
     - match: '\}'
