@@ -1,3 +1,21 @@
+## Install via Package Control instructions
+- Install Package Control 
+	- https://packagecontrol.io/installation
+- Add the pureJIRAsyntax repository to Package control
+	- Open **Command Palette**
+		- Tools -> Command Palette
+		- ⇧⌘P on Mac
+	- Type "Package Control: Add Repository"
+	- Paste the GitHub URL for the repository
+		- https://github.com/thegameDB/pureJIRAsyntax
+- Install the pureJIRAsyntax package via Package Control
+	- Open **Command Palette**
+	- Type "Package Control: Install Package"
+	- Start typing pureJIRAsyntax and select it from the list of packages
+- Select the syntax to begin using
+	- Tools -> Syntax -> PureJIRA
+	- Or use the Syntax selector in the lower right hand corner of the Sublime window
+
 ## Manual install instructions
 Place the unzipped directory "pureJIRAsyntax" into the Sublime Packages directory
 - MacOs /Users/pjones/Library/Application\ Support/Sublime\ Text\ 3/Packages/
