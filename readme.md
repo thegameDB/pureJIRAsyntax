@@ -13,12 +13,12 @@
 		- ![addrepo](imgs/setSyntax.jpg)
 	- Paste the GitHub URL for the repository
 		- https://github.com/thegameDB/pureJIRAsyntax
-		- ![adgithubrepo](addGithubRepo.jpg)
+		- ![adgithubrepo](imgs/addGithubRepo.jpg)
 - Install the pureJIRAsyntax package via Package Control
 	- Open **Command Palette**
 	- Type "Package Control: Install Package"
 	- Start typing pureJIRAsyntax and select it from the list of packages
-		- ![installPureJira](installPackageControl.jpg)
+		- ![installPureJira](imgs/addRepo.jpg)
 - Select the syntax to begin using
 	- Tools -> Syntax -> PureJIRA
 	- Or use the Syntax selector in the lower right hand corner of the Sublime window
