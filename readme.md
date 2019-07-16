@@ -1,3 +1,5 @@
+# A syntax highlighter for Sublime Text
+![purejiraexample](imgs/PureJiraExample.jpg)
 ## Install via Package Control instructions
 - Install Package Control 
 	- https://packagecontrol.io/installation
