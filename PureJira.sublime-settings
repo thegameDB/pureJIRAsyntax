@@ -1,0 +1,7 @@
+{
+	"extensions":
+	[
+		"pjira"
+	],
+	"auto_complete_commit_on_tab": true
+}

@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[{noformat}{noformat}]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>NoF</tabTrigger>
+    <!-- Optional: Description to show in the menu -->
+    <description>{noformat}{noformat}</description>
+</snippet>

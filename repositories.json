@@ -1,0 +1,18 @@
+{
+
+	"schema_version": "3.0.0",
+
+	"packages": [
+
+		{
+			"name": "pureJIRAsyntax",
+			"details": "Syntax highlighting for JIRA comments",
+			"releases": [
+				{
+					"sublime_text": "*",
+					"tags": true
+				}
+			]
+		},
+	]
+}
