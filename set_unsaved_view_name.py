@@ -7,7 +7,6 @@ import sublime_plugin
 
 class SetUnsavedViewName(sublime_plugin.EventListener):
     setting_name = False
-    view.settings().set('set_unsaved_view_name', False)
 
     dropped_chars = string.whitespace
 
@@ -28,6 +27,7 @@ class SetUnsavedViewName(sublime_plugin.EventListener):
         if self.pending != 0:
             return
 
+        view.settings().set('set_unsaved_view_name', False)
         # if view.settings().get('set_unsaved_view_name') is False:
         #     return
 
