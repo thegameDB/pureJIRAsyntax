@@ -2,8 +2,8 @@
 ---
 # See http://www.sublimetext.com/docs/3/syntax.html
 name: PureJIRA
-file_extensions: [.pjira]
-
+file_extensions:
+  - pjira
 scope: source.purejira
 variables:
   other_text_mods: '\^|\~|\?\?'
@@ -27,6 +27,7 @@ contexts:
     - include: noformat
     #- include: formatting
     - include: panel
+    - include: JIRAissues
     # icons
     - match: '{{icons}}'
       scope: keyword
@@ -83,7 +84,7 @@ contexts:
       push: curly
     - match: '\}'
       scope: invalid.illegal.stray-bracket-end
-    # JIRA tickets
+  JIRAissues:
     - match: '[A-Z]+-[0-9]+'
       scope: markup.underline.link
   curly:
@@ -166,6 +167,7 @@ contexts:
   inside_panel:
     - include: noformat
     #- include: link
+    - include: JIRAissues
     - meta_include_prototype: false
     - meta_scope: diff.deleted
     - match: '\.'
