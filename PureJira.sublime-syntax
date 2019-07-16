@@ -2,9 +2,9 @@
 ---
 # See http://www.sublimetext.com/docs/3/syntax.html
 name: PureJIRA
-file_extensions: .pjira
-  - ec
-scope: source.example-c
+file_extensions: [.pjira]
+
+scope: source.purejira
 variables:
   other_text_mods: '\^|\~|\?\?'
   icons: '\((!|\?|/)\)'
@@ -14,7 +14,7 @@ contexts:
   # meta_include_prototype: false.
 
   prototype:
-    - include: comments
+    #- include: comments
     - include: noformat
     - include: panel
 
@@ -25,7 +25,6 @@ contexts:
    # - include: numbers
     #- include: strings
     - include: noformat
-    #- include: jira_number
     #- include: formatting
     - include: panel
     # icons
@@ -65,7 +64,7 @@ contexts:
       scope: constant.numeric
     # tables
     - match: '(\|)(\|)?'
-      scope: jira_number
+      scope: keyword.control
     # {{code}}
     - match: '\{code\}'
       scope: keyword.control
@@ -119,26 +118,26 @@ contexts:
   #   # need to be escaped: this is done by using two single quotes next to each
   #   # other.
   #   - match: '\b(if|else|for|while)\b'
-  #     scope: keyword.control.example-c
+  #     scope: keyword.control.purejira
 
   #numbers:
    # - match: '\b(-)?[0-9.]+\b'
-    #  scope: constant.numeric.example-c
+    #  scope: constant.numeric.purejira
 
   # strings:
   #   # Strings begin and end with quotes, and use backslashes as an escape
   #   # character.
   #   - match: '"'
-  #     scope: punctuation.definition.string.begin.example-c
+  #     scope: punctuation.definition.string.begin.purejira
   #     push: inside_string
 
   # inside_string:
   #   - meta_include_prototype: false
-  #   - meta_scope: string.quoted.double.example-c
+  #   - meta_scope: string.quoted.double.purejira
   #   - match: '\.'
-  #     scope: constant.character.escape.example-c
+  #     scope: constant.character.escape.purejira
   #   - match: '"'
-  #     scope: punctuation.definition.string.end.example-c
+  #     scope: punctuation.definition.string.end.purejira
   #     pop: true
 
   noformat:
@@ -152,38 +151,39 @@ contexts:
     - meta_scope: markup.raw
     - match: '\.'
       scope: markup.raw
-      #scope: noformatContent.example-c
+      #scope: noformatContent.purejira
     - match: '{noformat}'
       scope: markup.heading punctuation.definition.heading
       pop: true
   panel:
     # JIRA noformat tag
     - match: '{panel}|{panel.+?}'
-      scope: markup.heading punctuation.definition.heading
+      scope: markup.heading.1 punctuation.definition.heading
+      #scope: markup.heading punctuation.definition.heading
       push: inside_panel
+      #pop: true
 
   inside_panel:
+    - include: noformat
+    #- include: link
     - meta_include_prototype: false
-    - meta_scope: markup.raw
+    - meta_scope: diff.deleted
     - match: '\.'
-      scope: markup.raw
+      scope: diff.deleted
       #scope: noformatContent.example-c
     - match: '{panel}'
-      scope: markup.heading punctuation.definition.heading
+      scope: markup.heading.1 punctuation.definition.heading
       pop: true
-  # jira_number:
-  #   - match: 'ES-\b(-)?[0-9.]+\b|PURE-\b(-)?[0-9.]+\b'
-  #     scope: jira_number.example-c
   #formatting:
    # - match: '\*[^\b]+\*'
     #  scope: markup.bold
-  comments:
-    # Comments begin with a '//' and finish at the end of the line.
-    - match: '#'
-      scope: punctuation.definition.comment.example-c
-      push:
-        # This is an anonymous context push for brevity.
-        - meta_scope: comment.line.double-slash.example-c
-        - match: $\n?
-          pop: true
+  # comments:
+  #   # Comments begin with a '//' and finish at the end of the line.
+  #   - match: '#'
+  #     scope: punctuation.definition.comment.purejira
+  #     push:
+  #       # This is an anonymous context push for brevity.
+  #       - meta_scope: comment.line.double-slash.purejira
+  #       - match: $\n?
+  #         pop: true
 

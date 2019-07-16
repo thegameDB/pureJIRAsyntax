@@ -6,6 +6,7 @@
 
 		{
 			"name": "pureJIRAsyntax",
+			"details": "Syntax highlighting for JIRA comments",
 			"releases": [
 				{
 					"sublime_text": "*",
