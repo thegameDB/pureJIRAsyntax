@@ -1,4 +1,4 @@
-# A syntax highlighter for Sublime Text
+# Syntax highlighting for JIRA text formatting
 ![purejiraexample](imgs/PureJiraExample.jpg)
 ## Install via Package Control instructions
 - Install Package Control 
