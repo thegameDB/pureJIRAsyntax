@@ -18,7 +18,7 @@
 	- Open **Command Palette**
 	- Type "Package Control: Install Package"
 	- Start typing pureJIRAsyntax and select it from the list of packages
-		- ![installPureJira](imgs/setSyntax.jpg)
+		- ![installPureJira](imgs/selectPureJira.jpg)
 - Select the syntax to begin using
 	- Tools -> Syntax -> PureJIRA
 	- Or use the Syntax selector in the lower right hand corner of the Sublime window
