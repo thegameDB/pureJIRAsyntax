@@ -25,7 +25,7 @@
 
 ## Manual install instructions
 Place the unzipped directory "pureJIRAsyntax" into the Sublime Packages directory
-- MacOs /Users/pjones/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+- MacOS ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
 - Windows C:\Users\YourUser\AppData\Roaming\Sublime Text 3\Packages\
 - Linux - figure it out yourself 
 
